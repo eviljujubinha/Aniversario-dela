@@ -1,0 +1,249 @@
+body{
+    background-color: #0e0e13;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    overflow: hidden;
+    text-align: center;
+    user-select: none;
+}
+
+p{
+    font-size: 17px;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#texto{
+    background-color: #0e0e13;
+    padding: 120x;
+    border-radius: 60px;
+}
+
+.main-wrapper a {
+  border-radius: 12px;
+  border: 3px outset #888;
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  color: #eee;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  overflow: hidden;
+  
+  box-shadow: 0 0 10px rgb(0, 0, 0, 1);
+  font-family: verdana;
+  font-size: 28px;
+  font-weight: bolder;
+  text-decoration: none;
+  background:linear-gradient(160deg, #666, #444);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+
+  transition: 0.2s;
+
+}
+.main-wrapper a:active {
+  border: 3px outset #ddd;
+  color: #fff;
+  background: linear-gradient(160deg, #666, #444);
+  text-shadow: 0px 0px 4px #ccc;
+  box-shadow: 0 0 10px #fff, 0 0 40px #fff, 0 0 80px #fff;
+  transition-delay: 1s;
+}
+
+.main-wrapper a span {
+  position: absolute;
+  display: block;
+}
+
+.main-wrapper a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #eee);
+}
+.main-wrapper a:active span:nth-child(1) {
+  left: 100%;
+  transition: 1s;
+}
+.main-wrapper a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #eee);
+}
+.main-wrapper a:active span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+}
+.main-wrapper a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #eee);
+}
+.main-wrapper a:active span:nth-child(3) {
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+
+.main-wrapper a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #eee);
+}
+.main-wrapper a:active span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+}
+
+* {
+  margin:0; padding: 10px;;
+  box-sizing:border-box;
+}
+:root {
+  --bg:#0e0e13;
+  --stairtop:#ADA8BE;
+  --stairface:#A28497;
+  --stairside:#6F5E5C;
+  --door:#C6CAED;
+}
+
+#main-wrapper {
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100%;
+}
+#stairs {
+  margin-top: 17em;
+  backface-visibility: hidden;
+  transform:rotateX(70deg) rotateZ(40deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+.item {
+  --startsize:0px;
+  --endsize:calc(var(--index) * 30px);
+  --largeur: 100px;
+  --longueur: 40px;
+  --duration:.3s;
+  --delay:calc(var(--index) * .3s);
+  position: relative;
+  display:block;
+  width: var(--largeur);
+  height: var(--longueur);
+  background: var(--stairtop);
+  transform: translateZ(var(--startsize));
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  animation:stairs1 var(--duration) ease-out var(--delay) forwards;
+  -moz-animation:stairs1 1s ease-out .3s forwards;
+}
+@keyframes stairs1 {
+  to {
+    transform: translateZ(var(--endsize));
+  }
+}
+.item:after,
+.item:before {
+  content: '';
+  position: absolute;
+  top:0; left:0;
+  backface-visibility: hidden;
+}
+.item:after {
+  height: var(--startsize);
+  width: var(--largeur);
+  background-color: var(--stairface);
+  transform: rotateX(-90deg) translateY(var(--startsize)) translateZ(calc(-1 * var(--startsize) + var(--longueur)));
+  transform-origin: 100% 100%;
+  animation:stairs2 var(--duration) ease-out var(--delay) forwards;
+  -moz-animation:stairs2 1s ease-out .3s forwards;
+}
+@keyframes stairs2 {
+  to {
+    height: var(--endsize);
+    transform: rotateX(-90deg) translateY(var(--endsize)) translateZ(calc(-1 * var(--endsize) + var(--longueur)));
+  }
+}
+.item:before {
+  height: var(--longueur);
+  width: var(--startsize);
+  background-color: var(--stairside);
+  transform: rotateY(90deg) translateX(var(--startsize)) translateZ(calc(-1 * var(--startsize) + var(--largeur)));
+  transform-origin: 100% 0;
+  animation:stairs3 var(--duration) ease-out var(--delay) forwards;
+  -moz-animation:stairs3 1s ease-out .3s forwards;
+}
+@keyframes stairs3 {
+  to {
+    width: var(--endsize);
+    transform: rotateY(90deg) translateX(var(--endsize)) translateZ(calc(-1 * var(--endsize) + var(--largeur)));
+  }
+}
+.door {
+  --size:170px;
+  --largeur: 100px;
+  --longueur: 20px;
+  position: relative;
+  display:block;
+  width: var(--largeur);
+  height: var(--longueur);
+  background: var(--stairtop);
+  transform:translateZ(320px);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+.door:after,
+.door:before {
+  content: '';
+  position: absolute;
+  top:0; left:0;
+  backface-visibility: hidden;
+}
+.door:after {
+  height: var(--size);
+  width: var(--largeur);
+  transform: rotateX(-90deg) translateY(var(--size)) translateZ(calc(-1 * var(--size) + var(--longueur)));
+  transform-origin: 100% 100%;
+  background-color:var(--door);
+  background-image: radial-gradient(ellipse at 27px 95px, #333 0, #333 4px, transparent 5px);
+  box-shadow: inset 0px 0px 0px 6px var(--stairface), inset 2px -2px 0px 8px var(--stairside), inset 2px -1px 0px 16px var(--stairtop);
+}
+.door:before {
+  height: var(--longueur);
+  width: var(--size);
+  background-color: var(--stairside);
+  transform: rotateY(90deg) translateX(var(--size)) translateZ(calc(-1 * var(--size) + var(--largeur)));
+  transform-origin: 100% 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#secreto{
+  display: none;
+}
+
