@@ -31,7 +31,7 @@ if(senha == "Morpho rhetenor"){
 
     setTimeout(() => {
 
-    window.location.href = "https://eviljujubinha.github.io/1-ano-maju/Home/home.html";
+    window.location.href = "https://eviljujubinha.github.io/Aniversario-dela/Primeira/primeira.html";
 
     }, 500);
     
