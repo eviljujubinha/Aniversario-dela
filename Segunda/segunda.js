@@ -40,7 +40,7 @@ if(senha == "Amarelo e Vermelho"
 
     setTimeout(() => {
 
-    window.location.href = "https://eviljujubinha.github.io/1-ano-maju/Home/home.html";
+    window.location.href = "https://eviljujubinha.github.io/Aniversario-dela/Ponte/ponte.html";
 
     }, 500);
     
